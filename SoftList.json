@@ -1,0 +1,16 @@
+{
+    "Default" : {
+        "DiskGenius" : {
+            "Name" : "DiskGenius",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/DG5461441_x64.zip",
+            "Url2" : "https://download.geniusite.com/DG5461441_x64.zip",
+            "Official" : "https://www.diskgenius.cn/download.php"
+        },
+        "Snipaste" : {
+            "Name" : "Snipaste",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/Snipaste-2.5.6-Beta-x64.zip",
+            "Url2" : "https://assets.sayori.moe/snipaste-dl/archives/Snipaste-2.8.3-Beta-x64.zip",
+            "Official" : "https://zh.snipaste.com/download.html"
+        }
+    }
+}
