@@ -6,11 +6,8 @@
 DiskGenius
 ```ps1
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'DiskGenius'
-```
-
-Snipaste
-```ps1
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'Snipaste'
+irm bit.ly/PtSoftDL|iex; PtSoftDL 'CrystalDiskMark'
 ```
 
 查看資訊

@@ -11,6 +11,12 @@
             "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/Snipaste-2.5.6-Beta-x64.zip",
             "Url2" : "https://assets.sayori.moe/snipaste-dl/archives/Snipaste-2.8.3-Beta-x64.zip",
             "Official" : "https://zh.snipaste.com/download.html"
+        },
+        "CrystalDiskMark" : {
+            "Name" : "CrystalDiskMark",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/CrystalDiskMark8_0_4c.zip",
+            "Url2" : "https://mirrors.gigenet.com/OSDN//crystaldiskmark/77936/CrystalDiskMark8_0_4c.zip",
+            "Official" : "https://crystalmark.info/ja/download/"
         }
     }
 }
