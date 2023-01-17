@@ -78,6 +78,7 @@ function PtSoftDL {
 }
 # PtSoftDL DiskGenius
 # PtSoftDL Snipaste
+# PtSoftDL Dism++
 # PtSoftDL CrystalDiskInfo,CrystalDiskMark -Path Z:\Work
 # PtSoftDL Snipaste -TempPath
 # PtSoftDL -Info

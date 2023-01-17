@@ -25,6 +25,13 @@
             "Url2" : "https://ftp.halifax.rwth-aachen.de/osdn/crystaldiskinfo/78047/CrystalDiskInfo8_17_13.zip",
             "Official" : "https://crystalmark.info/ja/download",
             "ExpandDir" : "CrystalDiskInfo8_17_13"
+        },
+        "Dism++" : {
+            "Name" : "Dism++",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/Dism++10.1.1002.1.zip",
+            "Url2" : "https://github.com/Chuyu-Team/Dism-Multi-language/releases/download/v10.1.1002.1/Dism++10.1.1002.1.zip",
+            "Official" : "https://github.com/Chuyu-Team/Dism-Multi-language/releases",
+            "ExpandDir" : "Dism++10.1.1002.1"
         }
     }
 }
