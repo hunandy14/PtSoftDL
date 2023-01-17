@@ -2,13 +2,13 @@
 function WebDL {
     param (
         [Parameter(Position = 0, ParameterSetName = "", Mandatory)]
-        [String] $Url,
+        [string] $Url,
         [Parameter(ParameterSetName = "")]
-        [String] $Path,
-        [Switch] $TempPath,
+        [string] $Path,
+        [switch] $TempPath,
         [Parameter(ParameterSetName = "")]
-        [String] $Name,
-        [Switch] $OpenDir
+        [string] $Name,
+        [switch] $OpenDir
     )
     # 參數設定
     $Dsk = $([Environment]::GetFolderPath('Desktop'))
@@ -40,35 +40,44 @@ function WebDL {
 function PtSoftDL {
     param (
         [Parameter(Position = 0, ParameterSetName = "Down", Mandatory)]
-        [string] $Name,
+        [array] $Name,
         [Parameter(ParameterSetName = "")]
-        [String] $Path,
-        [Switch] $TempPath,
+        [string] $Path,
+        [switch] $TempPath,
         [Parameter(ParameterSetName = "")]
         [string] $ListPath,
-        [switch] $OpenDir,
         [Parameter(ParameterSetName = "Info")]
         [switch] $Info
     )
     # 獲取清單
-    $Dsk = $([Environment]::GetFolderPath('Desktop'))
-    $ListPath = "raw.githubusercontent.com/hunandy14/PtSoftDL/master/SoftList.json"
-    $Json = Invoke-RestMethod $ListPath
+    if (!$Path) { $Path = $([Environment]::GetFolderPath('Desktop')) }
+    if ($TempPath) {
+        $Path = $env:TEMP+"\PtSoftDL"
+        if (!(Test-Path $Path -PathType:Container)) { New-Item $Path -ItemType:Directory -Force |Out-Null }
+    }
+    $Json = Invoke-RestMethod "raw.githubusercontent.com/hunandy14/PtSoftDL/master/SoftList.json"
     # 下載
     if ($Name) {
-        $Node = $Json.Default.$Name
-        $Url = $Node.Url 
-        $SoftPath = WebDL $Url -TempPath
-        # 解壓縮到桌面
-        $ExpandDir = $Node.ExpandDir
-        if ($ExpandDir) {
-            $ExpandDir = "$Dsk\$ExpandDir"
-        } else { $ExpandDir = $Dsk }
-        Expand-Archive $SoftPath $ExpandDir
+        if ($Name -isnot [array]) { $Name = @($Name) }
+        $Name|ForEach-Object{
+            $Node = $Json.Default.$_
+            $Url = $Node.Url 
+            $SoftPath = WebDL $Url -TempPath
+            # 解壓縮到桌面
+            $ExpandDir = $Node.ExpandDir
+            if ($ExpandDir) {
+                $ExpandDir = "$Path\$ExpandDir"
+            } else { $ExpandDir = $Path }
+            Expand-Archive $SoftPath $ExpandDir -Force
+            # 儲存到暫存時自動打開資料夾
+            if ($TempPath) { explorer.exe $Path }
+        }
     } elseif ($Info) {
-        $Json.Default.PSObject.Properties.Value
+        return $Json.Default.PSObject.Properties.Value
     }
 }
-# PtSoftDL 'DiskGenius'
-# PtSoftDL 'CrystalDiskMark'
+# PtSoftDL DiskGenius
+# PtSoftDL Snipaste
+# PtSoftDL CrystalDiskInfo,CrystalDiskMark -Path Z:\Work
+# PtSoftDL Snipaste -TempPath
 # PtSoftDL -Info
