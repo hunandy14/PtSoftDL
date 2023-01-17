@@ -51,16 +51,24 @@ function PtSoftDL {
         [switch] $Info
     )
     # 獲取清單
+    $Dsk = $([Environment]::GetFolderPath('Desktop'))
     $ListPath = "raw.githubusercontent.com/hunandy14/PtSoftDL/master/SoftList.json"
     $Json = Invoke-RestMethod $ListPath
     # 下載
     if ($Name) {
         $Node = $Json.Default.$Name
         $Url = $Node.Url 
-        WebDL $Url -Path:$Path -TempPath:$TempPath -OpenDir:$OpenDir
+        $SoftPath = WebDL $Url -TempPath
+        # 解壓縮到桌面
+        $ExpandDir = $Node.ExpandDir
+        if ($ExpandDir) {
+            $ExpandDir = "$Dsk\$ExpandDir"
+        } else { $ExpandDir = $Dsk }
+        Expand-Archive $SoftPath $ExpandDir
     } elseif ($Info) {
         $Json.Default.PSObject.Properties.Value
     }
 }
 # PtSoftDL 'DiskGenius'
+# PtSoftDL 'CrystalDiskMark'
 # PtSoftDL -Info
