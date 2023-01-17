@@ -16,8 +16,15 @@
             "Name" : "CrystalDiskMark",
             "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/CrystalDiskMark8_0_4c.zip",
             "Url2" : "https://mirrors.gigenet.com/OSDN//crystaldiskmark/77936/CrystalDiskMark8_0_4c.zip",
-            "Official" : "https://crystalmark.info/ja/download/",
+            "Official" : "https://crystalmark.info/ja/download",
             "ExpandDir" : "CrystalDiskMark8_0_4c"
+        },
+        "CrystalDiskInfo" : {
+            "Name" : "CrystalDiskInfo",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/CrystalDiskInfo8_17_13.zip",
+            "Url2" : "https://ftp.halifax.rwth-aachen.de/osdn/crystaldiskinfo/78047/CrystalDiskInfo8_17_13.zip",
+            "Official" : "https://crystalmark.info/ja/download",
+            "ExpandDir" : "CrystalDiskInfo8_17_13"
         }
     }
 }

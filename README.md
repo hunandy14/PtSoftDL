@@ -2,12 +2,11 @@
 ===
 
 快速使用
-
-DiskGenius
 ```ps1
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'DiskGenius'
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'Snipaste'
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'CrystalDiskMark'
+irm bit.ly/PtSoftDL|iex; PtSoftDL 'CrystalDiskInfo'
 ```
 
 查看資訊
