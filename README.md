@@ -8,6 +8,7 @@ irm bit.ly/PtSoftDL|iex; PtSoftDL 'Snipaste'
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'CrystalDiskMark'
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'CrystalDiskInfo'
 irm bit.ly/PtSoftDL|iex; PtSoftDL 'Dism++'
+irm bit.ly/PtSoftDL|iex; PtSoftDL 'JPEGView'
 ```
 
 查看資訊

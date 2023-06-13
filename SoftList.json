@@ -32,6 +32,13 @@
             "Url2" : "https://github.com/Chuyu-Team/Dism-Multi-language/releases/download/v10.1.1002.1/Dism++10.1.1002.1.zip",
             "Official" : "https://github.com/Chuyu-Team/Dism-Multi-language/releases",
             "ExpandDir" : "Dism++10.1.1002.1"
+        },
+        "JPEGView" : {
+            "Name" : "JPEGView",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/JPEGView_1.2.45.0.zip",
+            "Url2" : "https://github.com/sylikc/jpegview/releases/download/v1.2.45/JPEGView_1.2.45.zip",
+            "Official" : "https://github.com/sylikc/jpegview/releases",
+            "ExpandDir" : ""
         }
     }
 }
