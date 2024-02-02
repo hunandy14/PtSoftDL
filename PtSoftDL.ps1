@@ -26,12 +26,12 @@ function WebDL {
         New-Item $Path -ItemType:Directory -Force |Out-Null
     }
     # 目標檔案完整路徑
-    $DstPath  = "$Path\$Name"
+    $FilePath  = Join-Path $Path $Name
     # 下載
-    Start-BitsTransfer $Url $Path
+    (New-Object Net.WebClient).DownloadFile($Url, $FilePath)
     # 打開資料夾
-    if ($OpenDir) { explorer.exe $DstPath }
-    return $DstPath
+    if ($OpenDir) { explorer.exe $FilePath }
+    return $FilePath
 } # WebDL "https://github.com/hunandy14/PtSoftDL/raw/master/soft/DG5461441_x64.zip"
 
 
