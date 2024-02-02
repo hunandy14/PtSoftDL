@@ -8,19 +8,21 @@ function WebDL {
         [switch] $TempPath,
         [Parameter(ParameterSetName = "")]
         [string] $Name,
-        [switch] $OpenDir
+        [switch] $OpenDir,
+        [switch] $OpenFile
     )
     # 參數設定
-    $Dsk = $([Environment]::GetFolderPath('Desktop'))
-    $Url -match "[^/]+(?!.*/)" |Out-Null # 獲取連結中的檔名
-    $UrlFileName = $Matches[0]
+    $UrlFileName = ($Url -split "/")[-1]
     # 沒有檔名使用自動檔名
     if (!$Name) { $Name = $UrlFileName }
     # 沒有路徑預設存到桌面
     if (!$Path) {
         if ($TempPath) {
             $Path = $env:TEMP+"\WebDL"
-        } else { $Path = $Dsk }
+        } else {
+            $Dsk = [Environment]::GetFolderPath('Desktop')
+            $Path = $Dsk
+        }
     }
     if (!(Test-Path $Path)) {
         New-Item $Path -ItemType:Directory -Force |Out-Null
@@ -30,7 +32,8 @@ function WebDL {
     # 下載
     (New-Object Net.WebClient).DownloadFile($Url, $FilePath)
     # 打開資料夾
-    if ($OpenDir) { explorer.exe $FilePath }
+    if ($OpenDir)  { explorer.exe $Path }
+    if ($OpenFile) { explorer.exe $FilePath }
     return $FilePath
 } # WebDL "https://github.com/hunandy14/PtSoftDL/raw/master/soft/DG5461441_x64.zip"
 
