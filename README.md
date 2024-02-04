@@ -15,3 +15,10 @@ irm bit.ly/PtSoftDL|iex; PtSoftDL 'JPEGView'
 ```ps1
 irm bit.ly/PtSoftDL|iex; PtSoftDL -Info
 ```
+
+<br><br><br><br><br><br>
+
+下載 Win10
+```ps1
+irm bit.ly/PtSoftDL|iex; WebDL 'https://raw.githubusercontent.com/AveYo/MediaCreationTool.bat/main/MediaCreationTool.bat' -TempPath -OpenFile
+```
