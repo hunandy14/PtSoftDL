@@ -9,7 +9,8 @@ function WebDL {
         [Parameter(ParameterSetName = "")]
         [string] $Name,
         [switch] $OpenDir,
-        [switch] $OpenFile
+        [switch] $OpenFile,
+        [switch] $PassThru
     )
     # 參數設定
     $UrlFileName = ($Url -split "/")[-1]
@@ -28,13 +29,14 @@ function WebDL {
         New-Item $Path -ItemType:Directory -Force |Out-Null
     }
     # 目標檔案完整路徑
-    $FilePath  = Join-Path $Path $Name
+    $FilePath = Join-Path $Path $Name
     # 下載
     (New-Object Net.WebClient).DownloadFile($Url, $FilePath)
     # 打開資料夾
     if ($OpenDir)  { explorer.exe $Path }
     if ($OpenFile) { explorer.exe $FilePath }
-    return $FilePath
+    # 返回下載後的完整路徑
+    if ($PassThru) { return $FilePath }
 } # WebDL "https://github.com/hunandy14/PtSoftDL/raw/master/soft/DG5461441_x64.zip"
 
 
@@ -59,19 +61,29 @@ function PtSoftDL {
         if (!(Test-Path $Path -PathType:Container)) { New-Item $Path -ItemType:Directory -Force |Out-Null }
     }
     $Json = Invoke-RestMethod "raw.githubusercontent.com/hunandy14/PtSoftDL/master/SoftList.json"
+    
     # 下載
     if ($Name) {
         if ($Name -isnot [array]) { $Name = @($Name) }
+        Write-Host "即將開始下載: "
         $Name|ForEach-Object{
+            # 獲取下載路徑
             $Node = $Json.Default.$_
             $Url = $Node.Url 
-            $SoftPath = WebDL $Url -TempPath
-            # 解壓縮到桌面
+            # 處理解壓路徑
             $ExpandDir = $Node.ExpandDir
             if ($ExpandDir) {
                 $ExpandDir = "$Path\$ExpandDir"
             } else { $ExpandDir = $Path }
-            Expand-Archive $SoftPath $ExpandDir -Force
+            
+            # 下載
+            $SoftPath = WebDL $Url -TempPath -PassThru -EA Stop
+            # 解壓
+            Expand-Archive $SoftPath $ExpandDir -Force -EA Stop
+            
+            # 顯示信息
+            Write-Host "  [OK]:: $ExpandDir"
+            
             # 儲存到暫存時自動打開資料夾
             if ($TempPath) { explorer.exe $Path }
         }
