@@ -21,10 +21,10 @@
         },
         "CrystalDiskInfo" : {
             "Name" : "CrystalDiskInfo",
-            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/CrystalDiskInfo8_17_13.zip",
-            "Url2" : "https://ftp.halifax.rwth-aachen.de/osdn/crystaldiskinfo/78047/CrystalDiskInfo8_17_13.zip",
+            "Url" : "https://github.com/hunandy14/PtSoftDL/raw/master/soft/CrystalDiskInfo9_4_4Aoi.zip",
+            "Url2" : "https://ftp.halifax.rwth-aachen.de/osdn/crystaldiskinfo/78047/CrystalDiskInfo9_4_4Aoi.zip",
             "Official" : "https://crystalmark.info/ja/download",
-            "ExpandDir" : "CrystalDiskInfo8_17_13"
+            "ExpandDir" : "CrystalDiskInfo9_4_4Aoi"
         },
         "Dism++" : {
             "Name" : "Dism++",
